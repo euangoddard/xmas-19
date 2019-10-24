@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "xmas-emojis"
+    }
+  },
+  "defaultProject": "xmas-emojis",
+  "cli": {
+    "analytics": "286aeb75-70eb-45b6-a42a-aca2d2579aa3"
+  }
 }
