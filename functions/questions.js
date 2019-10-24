@@ -13,9 +13,15 @@ export async function handler(event, context) {
 }
 
 function listQuestions() {
+  const questions = require('./data.json').map(({ id, emojis }) => {
+    return {
+      id,
+      emojis,
+    };
+  });
   return {
     statusCode: 200,
-    body: JSON.stringify({ questions: [{ id: 1, emojis: 'ABC' }, { id: 2, emojis: 'DEF' }] }),
+    body: JSON.stringify({ questions }),
   };
 }
 
