@@ -1,4 +1,32 @@
 [
-  { "id": 1, "emojis": "ABC", "answer": "Oh come all ye faithful" },
-  { "id": 2, "emojis": "DEF", "answer": "Santa Claus is coming to town" }
+  { "emojis": "\uD83E\uDD34\uD83E\uDD34\uD83E\uDD34", "answer": "Three kings" },
+  { "emojis": "\uD83C\uDF85\uD83C\uDFFB\uD83D\uDC76", "answer": "Santa baby" },
+  { "emojis": "\uD83C\uDFE8⛔", "answer": "No room at the inn" },
+  { "emojis": "\uD83D\uDC26 in a \uD83C\uDF50\uD83C\uDF33", "answer": "Partridge in a pear tree" },
+  {
+    "emojis": "\uD83C\uDF85\uD83C\uDFFB➡️\uD83C\uDFD9️",
+    "answer": "Santa claus is coming to town"
+  },
+  { "emojis": "❄️ the ☃️", "answer": "Frosty the snowman" },
+  {
+    "emojis": "\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83C\uDF84",
+    "answer": "12 days of Christmas"
+  },
+  { "emojis": "\uD83D\uDC40\uD83D\uDEA2\uD83D\uDEA2\uD83D\uDEA2", "answer": "I saw three ships" },
+  { "emojis": "\uD83D\uDD14\uD83D\uDD14", "answer": "Jingle bells" },
+  { "emojis": "\uD83D\uDE36\uD83C\uDF03", "answer": "Silent night" },
+  {
+    "emojis": "\uD83C\uDFB8\uD83D\uDCAB\uD83C\uDF84",
+    "answer": "Rockin' around the Christmas tree"
+  },
+  {
+    "emojis": "\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03⬅️",
+    "answer": "Twelfth night"
+  },
+  { "emojis": "\uD83D\uDD25\uD83C\uDF77", "answer": "Mulled wine" },
+  { "emojis": "❓\uD83C\uDF85\uD83C\uDFFB", "answer": "Secret Santa" },
+  { "emojis": "\uD83C\uDFE2\uD83C\uDF89", "answer": "Office party" },
+  { "emojis": "\uD83D\uDC78\uD83D\uDCFA", "answer": "Queen's speach" }
+
+
 ]
