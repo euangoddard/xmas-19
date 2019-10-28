@@ -25,6 +25,7 @@
     "@angular/service-worker": "~9.0.0-next.12",
     "@ngrx/effects": "^8.4.0",
     "@ngrx/store": "^8.4.0",
+    "ngx-alias": "^1.0.3",
     "rxjs": "~6.5.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

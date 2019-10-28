@@ -1,5 +1,4 @@
 export async function handler(event, context) {
-  console.log('EVENT', event);
   if (event.httpMethod === 'GET') {
     return listQuestions();
   } else if (event.httpMethod === 'POST') {
@@ -13,9 +12,8 @@ export async function handler(event, context) {
 }
 
 function listQuestions() {
-  const questions = require('./data.json').map(({ id, emojis }) => {
+  const questions = require('./data.json').map(({ emojis }) => {
     return {
-      id,
       emojis,
     };
   });

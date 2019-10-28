@@ -1,1 +1,4 @@
-<h2 class="question--clue">{{ question.emojis }}</h2>
+<ng-container *alias="isActive$ | async as isActive">
+  <h2 class="question__clue" [class.question__clue--active]="isActive">{{ question.emojis }}</h2>
+  <div *ngIf="isActive" @popup><input type="text" /><button type="button">Check</button></div>
+</ng-container>
