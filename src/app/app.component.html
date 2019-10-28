@@ -1,1 +1,9 @@
 <h1>Emojis</h1>
+
+<section class="questions" *ngIf="ready$ | async">
+  <question
+    class="question"
+    *ngFor="let question of questions$ | async"
+    [question]="question"
+  ></question>
+</section>

@@ -15,7 +15,7 @@ export const initialState: QuestionsState = {
 const reducerFactory = createReducer(
   initialState,
   on(loadQuestionsSuccess, (state, action) => {
-    return { ...state, questions: action.questions, ready: false };
+    return { ...state, questions: action.questions, ready: true };
   }),
 );
 

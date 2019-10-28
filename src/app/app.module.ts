@@ -8,9 +8,10 @@ import { QuestionEffects } from 'src/app/effects/question-effects.service';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { metaReducers, reducers } from './reducers';
+import { QuestionComponent } from './components/question/question.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, QuestionComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
