@@ -16,7 +16,12 @@ export class ApiService {
     return this.http.get<Questions>(ApiService.url).pipe(pluck('questions'));
   }
 
-  checkAnswer(question: Question, answer: string): Observable<unknown> {
-    return of(null);
+  checkAnswer(question: Question, answer: string): Observable<CheckAnswerResult> {
+    return this.http.post<CheckAnswerResult>(ApiService.url, { emojis: question.emojis, answer });
   }
+}
+
+interface CheckAnswerResult {
+  isCorrect: boolean;
+  answer: string;
 }

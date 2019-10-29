@@ -11,3 +11,20 @@ export const loadQuestionsSuccess = createAction(
 
 export const activateQuestion = createAction(`${prefix} activate`, props<{ question: Question }>());
 export const deactivateQuestion = createAction(`${prefix} deactivate`);
+
+export const checkAnswer = createAction(`${prefix} check answer`, props<QuestionAnswerProps>());
+
+export const confirmCorrectAnswer = createAction(
+  `${prefix} confirm correct answer`,
+  props<QuestionAnswerProps>(),
+);
+
+export const rejectIncorrectAnswer = createAction(
+  `${prefix} reject incorrect answer`,
+  props<QuestionAnswerProps>(),
+);
+
+export interface QuestionAnswerProps {
+  question: Question;
+  answer: string;
+}

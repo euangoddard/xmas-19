@@ -1,4 +1,7 @@
-<ng-container *alias="isActive$ | async as isActive">
+<div *alias="isActive$ | async as isActive" [@size]="isActive ? 'grow' : 'shrink'">
   <h2 class="question__clue" [class.question__clue--active]="isActive">{{ question.emojis }}</h2>
-  <div *ngIf="isActive" @popup><input type="text" /><button type="button">Check</button></div>
-</ng-container>
+  <form *ngIf="isActive" @popup [formGroup]="form" (submit)="checkAnswer()">
+    <input type="text" required formControlName="answer" />
+    <button type="submit" [disabled]="form.invalid">Check</button>
+  </form>
+</div>

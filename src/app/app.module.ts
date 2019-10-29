@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -15,10 +16,11 @@ import { metaReducers, reducers } from './reducers';
 @NgModule({
   declarations: [AppComponent, QuestionComponent],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
     NgxAliasModule,
-    BrowserAnimationsModule,
+    ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     StoreModule.forRoot(reducers, {
       metaReducers,

@@ -7,9 +7,10 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { activateQuestion } from 'src/app/actions/questions';
+import { activateQuestion, checkAnswer } from 'src/app/actions/questions';
 import { Question } from 'src/app/models/question';
 import { State } from 'src/app/reducers';
 import { selectIsQuestionActive } from 'src/app/selectors/questions';
@@ -21,21 +22,31 @@ import { selectIsQuestionActive } from 'src/app/selectors/questions';
   animations: [
     trigger('popup', [
       transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(100%)' }),
-        animate('0.25s', style({ opacity: 1, transform: 'translateY(0)' })),
+        style({ opacity: 0, transform: 'translateY(-100%)' }),
+        animate(250, style({ opacity: 1, transform: 'translateY(0)' })),
       ]),
       transition(':leave', [
-        animate('0.25s', style({ opacity: 0, transform: 'translateY(100%)' })),
+        style({ opacity: 1, transform: 'translateY(0)' }),
+        animate(250, style({ opacity: 0, transform: 'translateY(-100%)' })),
       ]),
+    ]),
+    trigger('size', [
+      state('shrink', style({ height: '*' })),
+      state('grow', style({ height: '64px' })),
+      transition('shrink <=> grow', animate(250)),
     ]),
   ],
 })
 export class QuestionComponent implements OnChanges {
   @Input() question: Question;
 
+  readonly form: FormGroup;
+
   isActive$: Observable<boolean>;
 
-  constructor(private readonly store: Store<State>) {}
+  constructor(private readonly store: Store<State>, formBuilder: FormBuilder) {
+    this.form = formBuilder.group({ answer: [null, [Validators.required]] });
+  }
 
   @HostListener('click')
   activate(): void {
@@ -49,5 +60,12 @@ export class QuestionComponent implements OnChanges {
         select(selectIsQuestionActive, { question: questionChange.currentValue }),
       );
     }
+  }
+
+  checkAnswer(): void {
+    console.log(this.form.value);
+    this.store.dispatch(
+      checkAnswer({ question: this.question, answer: this.form.value['answer'] }),
+    );
   }
 }
