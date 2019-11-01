@@ -1,4 +1,9 @@
-<div *alias="isActive$ | async as isActive" [@size]="isActive ? 'grow' : 'shrink'">
+<div
+  *alias="isActive$ | async as isActive"
+  [@size]="isActive ? 'grow' : 'shrink'"
+  [class.incorrect]="isIncorrect$ | async"
+  [class.correct]="isCorrect$ | async"
+>
   <h2 class="question__clue" [class.question__clue--active]="isActive">{{ question.emojis }}</h2>
   <form *ngIf="isActive" @popup [formGroup]="form" (submit)="checkAnswer()">
     <input type="text" required formControlName="answer" />

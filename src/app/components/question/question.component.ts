@@ -10,10 +10,15 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { activateQuestion, checkAnswer } from 'src/app/actions/questions';
 import { Question } from 'src/app/models/question';
 import { State } from 'src/app/reducers';
-import { selectIsQuestionActive } from 'src/app/selectors/questions';
+import {
+  selectIsQuestionActive,
+  selectIsQuestionIncorrect,
+  selectQuestionCorrectAnswer,
+} from 'src/app/selectors/questions';
 
 @Component({
   selector: 'question',
@@ -43,6 +48,9 @@ export class QuestionComponent implements OnChanges {
   readonly form: FormGroup;
 
   isActive$: Observable<boolean>;
+  correctAnswer$: Observable<string | null>;
+  isCorrect$: Observable<boolean>;
+  isIncorrect$: Observable<boolean>;
 
   constructor(private readonly store: Store<State>, formBuilder: FormBuilder) {
     this.form = formBuilder.group({ answer: [null, [Validators.required]] });
@@ -56,9 +64,11 @@ export class QuestionComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     const questionChange = changes['question'];
     if (questionChange && questionChange.currentValue) {
-      this.isActive$ = this.store.pipe(
-        select(selectIsQuestionActive, { question: questionChange.currentValue }),
-      );
+      const questionProps = { question: questionChange.currentValue };
+      this.isActive$ = this.store.pipe(select(selectIsQuestionActive, questionProps));
+      this.correctAnswer$ = this.store.pipe(select(selectQuestionCorrectAnswer, questionProps));
+      this.isCorrect$ = this.correctAnswer$.pipe(map(a => !!a));
+      this.isIncorrect$ = this.store.pipe(select(selectIsQuestionIncorrect, questionProps));
     }
   }
 

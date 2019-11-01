@@ -25,6 +25,14 @@ body {
   &:last-child {
     border-bottom: none;
   }
+
+  .incorrect {
+    background: red;
+  }
+
+  .correct {
+    background: lawngreen;
+  }
 }
 
 .question__clue {

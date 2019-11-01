@@ -19,9 +19,25 @@ interface QuestionProps {
   question: Question;
 }
 
+const isQuestionActive = (state: QuestionsState, props: QuestionProps) => {
+  return state.activeQuestion ? state.activeQuestion.emojis === props.question.emojis : false;
+};
+
 export const selectIsQuestionActive = createSelector(
   selectQuestionState,
+  isQuestionActive,
+);
+
+export const selectIsQuestionIncorrect = createSelector(
+  selectQuestionState,
   (state: QuestionsState, props: QuestionProps) => {
-    return state.activeQuestion ? state.activeQuestion.emojis === props.question.emojis : false;
+    return isQuestionActive(state, props) && state.activeQuestionIncorrect;
   },
 );
+
+export const selectQuestionCorrectAnswer = createSelector(
+  selectQuestionState,
+  (state: QuestionsState, props: QuestionProps) => {
+    return state.correctAnswers[props.question.emojis] || null;
+  },
+)
