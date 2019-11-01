@@ -1,3 +1,5 @@
+const levenshtein = require('js-levenshtein');
+
 export async function handler(event, context) {
   if (event.httpMethod === 'GET') {
     return listQuestions();
@@ -46,7 +48,7 @@ function checkQuestion(event) {
     };
   }
 
-  const isCorrect = question.answer === answer;
+  const isCorrect = isAnswerCorrect(question.answer, answer);
   let response;
   if (isCorrect) {
     response = { isCorrect, answer: question.answer };
@@ -59,3 +61,46 @@ function checkQuestion(event) {
     body: JSON.stringify(response),
   };
 }
+
+function isAnswerCorrect(answer, guess) {
+  const answerNormalized = normalizeAnswer(answer);
+  const guessNormalized = normalizeAnswer(guess);
+  const distance = levenshtein(answerNormalized, guessNormalized);
+  return distance < 3;
+}
+
+function normalizeAnswer(answer) {
+  if (!answer) {
+    return answer;
+  }
+  const words = answer.toLowerCase().split(/\s+/g);
+  const wordsNormalized = [];
+  words.forEach(word => {
+    const wordSynonym = normalizeSynonyms(word);
+    const wordNormalized = wordSynonym.replace(/\W+/g, '');
+    if (wordNormalized && STOPWORDS.has(wordNormalized)) {
+      wordsNormalized.push(wordNormalized);
+    }
+  });
+  return wordsNormalized.join('-');
+}
+
+function normalizeSynonyms(word) {
+  return SYNONYMS[word] || word;
+}
+
+const SYNONYMS = {
+  '+': 'and',
+  '&': 'and',
+  '1': 'one',
+  '2': 'two',
+  '3': 'three',
+  '4': 'four',
+  '5': 'five',
+  '6': 'six',
+  '7': 'seven',
+  '8': 'eight',
+  '9': 'nine',
+};
+
+const STOPWORDS = new Set(['the']);
