@@ -65,8 +65,7 @@ function checkQuestion(event) {
 function isAnswerCorrect(answer, guess) {
   const answerNormalized = normalizeAnswer(answer);
   const guessNormalized = normalizeAnswer(guess);
-  const distance = levenshtein(answerNormalized, guessNormalized);
-  return distance < 3;
+  return guessNormalized === answerNormalized;
 }
 
 function normalizeAnswer(answer) {
