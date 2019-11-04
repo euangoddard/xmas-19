@@ -1,5 +1,3 @@
-const levenshtein = require('js-levenshtein');
-
 export async function handler(event, context) {
   if (event.httpMethod === 'GET') {
     return listQuestions();
