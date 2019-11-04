@@ -82,6 +82,13 @@ button {
   font-size: 1.5rem;
 }
 
+.progress {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+}
+
 .loader-stage {
   display: flex;
   justify-content: center;

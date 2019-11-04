@@ -1,4 +1,5 @@
 import { createSelector } from '@ngrx/store';
+import { size } from 'lodash-es';
 import { Question } from 'src/app/models/question';
 import { State } from 'src/app/reducers';
 import { QuestionsState } from 'src/app/reducers/questions';
@@ -40,4 +41,23 @@ export const selectQuestionCorrectAnswer = createSelector(
   (state: QuestionsState, props: QuestionProps) => {
     return state.correctAnswers[props.question.emojis] || null;
   },
-)
+);
+
+export const selectAnswerCounts = createSelector<State, QuestionsState, AnswerCounts | null>(
+  selectQuestionState,
+  (state: QuestionsState) => {
+    if (state.ready) {
+      return {
+        total: state.questions.length,
+        correct: size(state.correctAnswers),
+      };
+    } else {
+      return null;
+    }
+  },
+);
+
+export interface AnswerCounts {
+  total: number;
+  correct: number;
+}
