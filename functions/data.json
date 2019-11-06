@@ -26,7 +26,6 @@
   { "emojis": "\uD83D\uDD25\uD83C\uDF77", "answer": "Mulled wine" },
   { "emojis": "❓\uD83C\uDF85\uD83C\uDFFB", "answer": "Secret Santa" },
   { "emojis": "\uD83C\uDFE2\uD83C\uDF89", "answer": "Office party" },
-  { "emojis": "\uD83D\uDC78\uD83D\uDCFA", "answer": "Queen's speach" }
-
-
+  { "emojis": "\uD83D\uDC78\uD83D\uDCFA", "answer": "Queen's speach" },
+  { "emojis": "\uD83E\uDDE0\uD83D\uDC68\uD83E\uDDE0\uD83D\uDC68\uD83E\uDDE0\uD83D\uDC68", "answer": "Three wise men" }
 ]
