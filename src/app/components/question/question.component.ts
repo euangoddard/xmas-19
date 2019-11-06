@@ -37,7 +37,7 @@ import {
     ]),
     trigger('size', [
       state('shrink', style({ height: '*' })),
-      state('grow', style({ height: '80px' })),
+      state('grow', style({ height: '112px' })),
       transition('shrink <=> grow', animate(250)),
     ]),
   ],

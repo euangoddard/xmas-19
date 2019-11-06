@@ -1,12 +1,25 @@
-$font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$font-stack: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+  Apple Color Emoji, Segoe UI Emoji;
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: $font-stack;
   font-size: 16px;
-  padding: 1rem;
+  padding: 1rem 1rem 5rem;
   background-color: darken(white, 2%);
   color: lighten(black, 2%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
 }
 
 %form-base {
@@ -53,7 +66,7 @@ button {
 
 .question {
   display: block;
-  padding: 1rem;
+
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   overflow-y: hidden;
 
@@ -61,12 +74,18 @@ button {
     border-bottom: none;
   }
 
+  > * {
+    padding: 1rem;
+    cursor: pointer;
+  }
+
   .incorrect {
-    background: red;
+    background: #ef9a9a;
   }
 
   .correct {
-    background: lawngreen;
+    background: #c5e1a5;
+    cursor: default;
   }
 }
 
@@ -80,13 +99,22 @@ button {
 
 .question__clue--active {
   font-size: 1.5rem;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .progress {
+  display: block;
   position: fixed;
   z-index: 1;
+  left: 0;
   bottom: 0;
   width: 100%;
+  background: rgba(#fff, 0.8);
+  text-align: center;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
 .loader-stage {

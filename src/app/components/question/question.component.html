@@ -5,8 +5,13 @@
   [class.correct]="isCorrect$ | async"
 >
   <h2 class="question__clue" [class.question__clue--active]="isActive">{{ question.emojis }}</h2>
-  <form *ngIf="isActive" @popup [formGroup]="form" (submit)="checkAnswer()">
-    <input type="text" required formControlName="answer" />
-    <button type="submit" [disabled]="form.invalid">Check</button>
-  </form>
+  <h1 *ngIf="correctAnswer$ | async as correctAnswer; else captureAnswer">
+    {{ correctAnswer }}
+  </h1>
+  <ng-template #captureAnswer>
+    <form *ngIf="isActive" @popup [formGroup]="form" (submit)="checkAnswer()">
+      <input type="text" required formControlName="answer" />
+      <button type="submit" [disabled]="form.invalid">Check</button>
+    </form>
+  </ng-template>
 </div>
