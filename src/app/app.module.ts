@@ -12,10 +12,9 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { QuestionComponent } from './components/question/question.component';
 import { metaReducers, reducers } from './reducers';
-import { ProgressComponent } from './components/progress/progress.component';
 
 @NgModule({
-  declarations: [AppComponent, QuestionComponent, ProgressComponent],
+  declarations: [AppComponent, QuestionComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
