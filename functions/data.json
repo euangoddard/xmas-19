@@ -1,31 +1,88 @@
 [
-  { "emojis": "\uD83E\uDD34\uD83E\uDD34\uD83E\uDD34", "answer": "Three kings" },
-  { "emojis": "\uD83C\uDF85\uD83C\uDFFB\uD83D\uDC76", "answer": "Santa baby" },
-  { "emojis": "\uD83C\uDFE8⛔", "answer": "No room at the inn" },
-  { "emojis": "\uD83D\uDC26 in a \uD83C\uDF50\uD83C\uDF33", "answer": "Partridge in a pear tree" },
+  {
+    "emojis": "\uD83E\uDD34\uD83C\uDFFF\uD83E\uDD34\uD83C\uDFFD\uD83E\uDD34\uD83C\uDFFC",
+    "answer": "Three kings",
+    "hint": "Christmas story"
+  },
+  {
+    "emojis": "\uD83C\uDF85\uD83C\uDFFB\uD83D\uDC76\uD83C\uDFFF",
+    "answer": "Santa baby",
+    "hint": "Pop song"
+  },
+  { "emojis": "\uD83C\uDFE8⛔", "answer": "No room at the inn", "hint": "Christmas story" },
+  {
+    "emojis": "\uD83D\uDC26 in a \uD83C\uDF50\uD83C\uDF33",
+    "answer": "Partridge in a pear tree",
+    "hint": "In Carol"
+  },
   {
     "emojis": "\uD83C\uDF85\uD83C\uDFFB➡️\uD83C\uDFD9️",
-    "answer": "Santa claus is coming to town"
+    "answer": "Santa claus is coming to town",
+    "hint": "Pop song"
   },
-  { "emojis": "❄️ the ☃️", "answer": "Frosty the snowman" },
+  { "emojis": "❄️ the ☃️", "answer": "Frosty the snowman", "hint": "Pop song" },
   {
     "emojis": "\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83D\uDCC5\uD83C\uDF84",
-    "answer": "12 days of Christmas"
+    "answer": "12 days of Christmas",
+    "hint": "Song"
   },
-  { "emojis": "\uD83D\uDC40\uD83D\uDEA2\uD83D\uDEA2\uD83D\uDEA2", "answer": "I saw three ships" },
-  { "emojis": "\uD83D\uDD14\uD83D\uDD14", "answer": "Jingle bells" },
-  { "emojis": "\uD83D\uDE36\uD83C\uDF03", "answer": "Silent night" },
+  {
+    "emojis": "\uD83D\uDC40\uD83D\uDEA2\uD83D\uDEA2\uD83D\uDEA2",
+    "answer": "I saw three ships",
+    "hint": "Song"
+  },
+  { "emojis": "\uD83D\uDD14\uD83D\uDD14", "answer": "Jingle bells", "hint": "Pop song" },
+  { "emojis": "\uD83D\uDE36\uD83C\uDF03", "answer": "Silent night", "hint": "Carol" },
   {
     "emojis": "\uD83C\uDFB8\uD83D\uDCAB\uD83C\uDF84",
-    "answer": "Rockin' around the Christmas tree"
+    "answer": "Rockin' around the Christmas tree",
+    "hint": "Pop song"
   },
   {
     "emojis": "\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03\uD83C\uDF03⬅️",
-    "answer": "Twelfth night"
+    "answer": "Twelfth night",
+    "hint": "Event"
   },
-  { "emojis": "\uD83D\uDD25\uD83C\uDF77", "answer": "Mulled wine" },
-  { "emojis": "❓\uD83C\uDF85\uD83C\uDFFB", "answer": "Secret Santa" },
-  { "emojis": "\uD83C\uDFE2\uD83C\uDF89", "answer": "Office party" },
-  { "emojis": "\uD83D\uDC78\uD83D\uDCFA", "answer": "Queen's speach" },
-  { "emojis": "\uD83E\uDDE0\uD83D\uDC68\uD83E\uDDE0\uD83D\uDC68\uD83E\uDDE0\uD83D\uDC68", "answer": "Three wise men" }
+  { "emojis": "\uD83D\uDD25\uD83C\uDF77", "answer": "Mulled wine", "hint": "Tradition" },
+  { "emojis": "❓\uD83C\uDF85\uD83C\uDFFB", "answer": "Secret Santa", "hint": "Tradition" },
+  { "emojis": "\uD83C\uDFE2\uD83C\uDF89", "answer": "Office party", "hint": "Tradition" },
+  { "emojis": "\uD83D\uDC78\uD83D\uDCFA", "answer": "Queen's speech", "hint": "Tradition" },
+  {
+    "emojis": "\uD83E\uDDE0\uD83D\uDC68\uD83C\uDFFE \uD83E\uDDE0\uD83D\uDC68\uD83C\uDFFC \uD83E\uDDE0\uD83D\uDC68\uD83C\uDFFD",
+    "answer": "Three wise men",
+    "hint": "Christmas story"
+  },
+  {
+    "emojis": "\uD83D\uDC41️\uD83D\uDC69\uD83C\uDFFC\uD83D\uDC8B\uD83C\uDF85\uD83C\uDFFB",
+    "answer": "I saw mummy kissing Santa Claus",
+    "hint": "Pop song"
+  },
+  {
+    "emojis": "\uD83D\uDC7B\uD83C\uDF81",
+    "answer": "The ghost of Christmas present",
+    "hint": "Literature"
+  },
+  {
+    "emojis": "\uD83D\uDE97\uD83C\uDFE0\uD83C\uDF84",
+    "answer": "Driving home for Christmas",
+    "hint": "Pop song"
+  },
+  { "emojis": "\uD83E\uDD41\uD83D\uDC66", "answer": "Little drummer boy", "hint": "Song" },
+  {
+    "emojis": "\uD83E\uDDD4\uD83C\uDFFC\uD83D\uDECC\uD83E\uDD73\uD83E\uDD35\uD83E\uDD35",
+    "answer": "God rest ye merry gentlemen",
+    "hint": "Carol"
+  },
+  {
+    "emojis": "\uD83C\uDF81\uD83D\uDEAB\uD83D\uDC69\u200D❤️\u200D\uD83D\uDC8B\u200D\uD83D\uDC68✅",
+    "answer": "All I want for Christmas is you",
+    "hint": "Pop song"
+  },
+  { "emojis": "\uD83E\uDD73\uD83C\uDF0D", "answer": "Joy to the World" },
+  {
+    "emojis": "\uD83C\uDFE2\uD83D\uDCA5\uD83D\uDCA3\uD83D\uDE81\uD83D\uDD2B",
+    "answer": "Die Hard",
+    "hint": "Film"
+  },
+  { "emojis": "\uD83D\uDE31", "answer": "Home Alone", "hint": "Film" }
 ]
