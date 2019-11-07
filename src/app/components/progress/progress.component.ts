@@ -9,7 +9,7 @@ import { selectAnswerCounts } from 'src/app/selectors/questions';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'progress',
-  }
+  },
 })
 export class ProgressComponent {
 

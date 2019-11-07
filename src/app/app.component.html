@@ -1,4 +1,4 @@
-<h1>Xmas Emoji Quiz</h1>
+<h1>Emojis</h1>
 
 <section class="questions" *ngIf="ready$ | async">
   <question
@@ -7,3 +7,5 @@
     [question]="question"
   ></question>
 </section>
+
+<question-progress></question-progress>
