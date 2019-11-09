@@ -1,1 +1,3 @@
-<h1 *ngIf="counts$ | async as counts">{{ counts.correct }} / {{ counts.total }}</h1>
+<h1 *ngIf="counts$ | async as counts">
+  {{ counts.correct }} <span style="font-weight: 300">/</span> {{ counts.total }}
+</h1>
