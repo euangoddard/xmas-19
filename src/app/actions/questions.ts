@@ -14,6 +14,11 @@ export const deactivateQuestion = createAction(`${prefix} deactivate`);
 
 export const checkAnswer = createAction(`${prefix} check answer`, props<QuestionAnswerProps>());
 
+export const loadAnswers = createAction(
+  `${prefix} load answers`,
+  props<{ correctAnswers: { [emojis: string]: string } }>(),
+);
+
 export const clearIncorrectAnswer = createAction(`${prefix} clear incorrect answer`);
 
 export const confirmCorrectAnswer = createAction(

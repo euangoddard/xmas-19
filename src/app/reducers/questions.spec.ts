@@ -3,19 +3,23 @@ import {
   clearIncorrectAnswer,
   confirmCorrectAnswer,
   deactivateQuestion,
+  loadAnswers,
   loadQuestionsSuccess,
   rejectIncorrectAnswer,
   setHintVisibility,
 } from 'src/app/actions/questions';
+import { AnswersByEmoji } from 'src/app/models/answers';
 import { Question } from 'src/app/models/question';
 import { questionsReducer, QuestionsState } from 'src/app/reducers/questions';
 
 const QUESTION_A: Question = {
   emojis: 'ABC',
+  hint: 'Carol',
 };
 
 const QUESTION_B: Question = {
   emojis: 'DEF',
+  hint: 'Film',
 };
 
 describe('Questions reducer', () => {
@@ -191,6 +195,15 @@ describe('Questions reducer', () => {
       const initialState: QuestionsState = { ...getInitialState(), showHints: true };
       const nextState = questionsReducer(initialState, setHintVisibility({ visible: false }));
       expect(nextState).toEqual({ ...initialState, showHints: false });
+    });
+  });
+
+  describe('loadAnswers', () => {
+    it('should populate the store', () => {
+      const initialState = getInitialState();
+      const correctAnswers: AnswersByEmoji = { ABC: '123', DEF: '456' };
+      const nextState = questionsReducer(initialState, loadAnswers({ correctAnswers }));
+      expect(nextState).toEqual({ ...initialState, correctAnswers });
     });
   });
 });

@@ -4,7 +4,7 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 import { deactivateQuestion, loadQuestions } from 'src/app/actions/questions';
 import { State } from 'src/app/reducers';
 import { selectQuestions, selectQuestionsReady } from 'src/app/selectors/questions';
-import { SwUpdatesService } from 'src/app/sw-update.service';
+import { SwUpdatesService } from 'src/app/services/sw-update.service';
 
 @Component({
   selector: 'app-root',

@@ -4,10 +4,12 @@ import {
   clearIncorrectAnswer,
   confirmCorrectAnswer,
   deactivateQuestion,
+  loadAnswers,
   loadQuestionsSuccess,
   rejectIncorrectAnswer,
   setHintVisibility,
 } from 'src/app/actions/questions';
+import { AnswersByEmoji } from 'src/app/models/answers';
 import { Question, Questions } from 'src/app/models/question';
 
 export interface QuestionsState {
@@ -15,7 +17,7 @@ export interface QuestionsState {
   ready: boolean;
   activeQuestion: null | Question;
   activeQuestionIncorrect: boolean;
-  correctAnswers: { [emojis: string]: string };
+  correctAnswers: AnswersByEmoji;
   showHints: boolean;
 }
 
@@ -53,6 +55,9 @@ const reducerFactory = createReducer(
   }),
   on(setHintVisibility, (state, action) => {
     return { ...state, showHints: action.visible };
+  }),
+  on(loadAnswers, (state, action) => {
+    return { ...state, correctAnswers: { ...state.correctAnswers, ...action.correctAnswers } };
   }),
 );
 
