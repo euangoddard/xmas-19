@@ -10,12 +10,16 @@ import {
   loadQuestionsSuccess,
   QuestionAnswerProps,
   rejectIncorrectAnswer,
+  setHintVisibility,
 } from 'src/app/actions/questions';
 import { AnswersByEmoji } from 'src/app/models/answers';
 import { State } from 'src/app/reducers';
 import { selectCorrectAnswers } from 'src/app/selectors/questions';
 import { ApiService } from 'src/app/services/api.service';
 import { StorageService } from 'src/app/services/storage.service';
+
+const SHOW_HINTS_STORAGE_KEY = 'show-hints';
+const ANSWERS_STORAGE_KEY = 'answers';
 
 @Injectable()
 export class QuestionEffects {
@@ -37,8 +41,19 @@ export class QuestionEffects {
 
   readonly loadAnswers$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadQuestionsSuccess.type),
-      map(() => loadAnswers({ correctAnswers: this.storage.get<AnswersByEmoji>('answers', {}) })),
+      ofType(loadQuestions.type),
+      map(() =>
+        loadAnswers({ correctAnswers: this.storage.get<AnswersByEmoji>(ANSWERS_STORAGE_KEY, {}) }),
+      ),
+    ),
+  );
+
+  readonly loadHintVisibility$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadQuestions.type),
+      map(() =>
+        setHintVisibility({ visible: this.storage.get<boolean>(SHOW_HINTS_STORAGE_KEY, false) }),
+      ),
     ),
   );
 
@@ -65,7 +80,19 @@ export class QuestionEffects {
         ofType(confirmCorrectAnswer.type),
         withLatestFrom(this.store.pipe(select(selectCorrectAnswers))),
         tap(([_, correctAnswers]) => {
-          this.storage.set('answers', correctAnswers);
+          this.storage.set(ANSWERS_STORAGE_KEY, correctAnswers);
+        }),
+      ),
+    { dispatch: false },
+  );
+
+  readonly saveHintVisibility$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(setHintVisibility.type),
+        tap(action => {
+          const visible = (action as any)['visible'];
+          this.storage.set(SHOW_HINTS_STORAGE_KEY, visible);
         }),
       ),
     { dispatch: false },
