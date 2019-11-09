@@ -59,8 +59,9 @@ export class QuestionComponent implements OnChanges {
     this.form = formBuilder.group({ answer: [null, [Validators.required]] });
   }
 
-  @HostListener('click')
-  activate(): void {
+  @HostListener('click', ['$event'])
+  activate(event: Event): void {
+    event.stopPropagation();
     this.store.dispatch(activateQuestion({ question: this.question }));
   }
 

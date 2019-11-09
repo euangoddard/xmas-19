@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { untilDestroyed } from 'ngx-take-until-destroy';
-import { loadQuestions } from 'src/app/actions/questions';
+import { deactivateQuestion, loadQuestions } from 'src/app/actions/questions';
 import { State } from 'src/app/reducers';
 import { selectQuestions, selectQuestionsReady } from 'src/app/selectors/questions';
 import { SwUpdatesService } from 'src/app/sw-update.service';
@@ -19,6 +19,11 @@ export class AppComponent implements OnInit, OnDestroy {
     private readonly store: Store<State>,
     private readonly swUpdatesService: SwUpdatesService,
   ) {}
+
+  @HostListener('click')
+  deactivateQuestion(): void {
+    this.store.dispatch(deactivateQuestion());
+  }
 
   ngOnInit(): void {
     this.store.dispatch(loadQuestions());
