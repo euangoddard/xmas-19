@@ -1,4 +1,4 @@
-import {sortBy} from "lodash-es";
+import { sortBy } from 'lodash-es';
 
 export async function handler(event, context) {
   if (event.httpMethod === 'GET') {
@@ -14,12 +14,15 @@ export async function handler(event, context) {
 }
 
 function listQuestions() {
-  const questions = sortBy(require('./data.json').map(({ emojis, hint }) => {
-    return {
-      emojis,
-      hint,
-    };
-  }), 'hint');
+  const questions = sortBy(
+    require('./data.json').map(({ emojis, hint }) => {
+      return {
+        emojis,
+        hint,
+      };
+    }),
+    'hint',
+  );
   return {
     statusCode: 200,
     body: JSON.stringify({ questions }),
@@ -48,7 +51,6 @@ function checkQuestion(event) {
       }),
     };
   }
-
   const isCorrect = isAnswerCorrect(question.answer, answer);
   let response;
   if (isCorrect) {
@@ -78,7 +80,7 @@ function normalizeAnswer(answer) {
   words.forEach(word => {
     const wordSynonym = normalizeSynonyms(word);
     const wordNormalized = wordSynonym.replace(/\W+/g, '');
-    if (wordNormalized && STOPWORDS.has(wordNormalized)) {
+    if (wordNormalized && !STOPWORDS.has(wordNormalized)) {
       wordsNormalized.push(wordNormalized);
     }
   });

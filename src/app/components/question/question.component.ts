@@ -77,7 +77,6 @@ export class QuestionComponent implements OnChanges {
   }
 
   checkAnswer(): void {
-    console.log(this.form.value);
     this.store.dispatch(
       checkAnswer({ question: this.question, answer: this.form.value['answer'] }),
     );
