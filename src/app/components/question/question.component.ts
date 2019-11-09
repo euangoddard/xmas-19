@@ -17,7 +17,8 @@ import { State } from 'src/app/reducers';
 import {
   selectIsQuestionActive,
   selectIsQuestionIncorrect,
-  selectQuestionCorrectAnswer, selectShowHints,
+  selectQuestionCorrectAnswer,
+  selectShowHints,
 } from 'src/app/selectors/questions';
 
 @Component({

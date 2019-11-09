@@ -12,7 +12,6 @@ import { selectAnswerCounts } from 'src/app/selectors/questions';
   },
 })
 export class ProgressComponent {
-
   readonly counts$ = this.store.pipe(select(selectAnswerCounts));
 
   constructor(private readonly store: Store<State>) {}
