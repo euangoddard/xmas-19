@@ -27,6 +27,8 @@ h6 {
   font-family: inherit;
   line-height: 1.25;
   border-radius: 0.25rem;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+  0 1px 3px 0 rgba(0, 0, 0, 0.12);
 }
 
 form {
@@ -42,7 +44,7 @@ input[type='text'] {
   padding: 0.5rem 0.75rem;
 
   border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
   flex: 1 1 auto;
   min-width: 3rem;
 
