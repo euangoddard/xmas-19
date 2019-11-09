@@ -15,6 +15,8 @@
     </form>
   </ng-template>
   <ng-template #hint>
-    <h3 *ngIf="showHints$ | async" class="hint">Hint: {{ question.hint }}</h3>
+    <h3 *ngIf="showHints$ | async" class="hint">
+      Hint: <span class="hint-text">{{ question.hint }}</span>
+    </h3>
   </ng-template>
 </div>
