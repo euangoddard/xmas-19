@@ -28,6 +28,7 @@
     "@ngrx/store": "^8.4.0",
     "lodash-es": "^4.17.15",
     "ngx-alias": "^1.0.3",
+    "ngx-take-until-destroy": "^5.4.0",
     "rxjs": "~6.5.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

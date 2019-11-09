@@ -13,9 +13,10 @@ import { AppComponent } from './app.component';
 import { QuestionComponent } from './components/question/question.component';
 import { metaReducers, reducers } from './reducers';
 import { ProgressComponent } from './components/progress/progress.component';
+import { HintToggleComponent } from './components/hint-toggle/hint-toggle.component';
 
 @NgModule({
-  declarations: [AppComponent, QuestionComponent, ProgressComponent],
+  declarations: [AppComponent, QuestionComponent, ProgressComponent, HintToggleComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,

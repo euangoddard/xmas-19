@@ -17,7 +17,7 @@ import { State } from 'src/app/reducers';
 import {
   selectIsQuestionActive,
   selectIsQuestionIncorrect,
-  selectQuestionCorrectAnswer,
+  selectQuestionCorrectAnswer, selectShowHints,
 } from 'src/app/selectors/questions';
 
 @Component({
@@ -51,6 +51,8 @@ export class QuestionComponent implements OnChanges {
   correctAnswer$: Observable<string | null>;
   isCorrect$: Observable<boolean>;
   isIncorrect$: Observable<boolean>;
+
+  readonly showHints$ = this.store.pipe(select(selectShowHints));
 
   constructor(private readonly store: Store<State>, formBuilder: FormBuilder) {
     this.form = formBuilder.group({ answer: [null, [Validators.required]] });

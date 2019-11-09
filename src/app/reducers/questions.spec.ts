@@ -5,6 +5,7 @@ import {
   deactivateQuestion,
   loadQuestionsSuccess,
   rejectIncorrectAnswer,
+  setHintVisibility,
 } from 'src/app/actions/questions';
 import { Question } from 'src/app/models/question';
 import { questionsReducer, QuestionsState } from 'src/app/reducers/questions';
@@ -25,6 +26,7 @@ describe('Questions reducer', () => {
       activeQuestion: null,
       activeQuestionIncorrect: false,
       correctAnswers: {},
+      showHints: false,
     });
   });
 
@@ -175,6 +177,20 @@ describe('Questions reducer', () => {
         activeQuestionIncorrect: true,
       };
       expect(nextState).toEqual(expectedState);
+    });
+  });
+
+  describe('setHintVisibility', () => {
+    it('should set the visibility to true', () => {
+      const initialState = getInitialState();
+      const nextState = questionsReducer(initialState, setHintVisibility({ visible: true }));
+      expect(nextState).toEqual({ ...initialState, showHints: true });
+    });
+
+    it('should set the visibility to false', () => {
+      const initialState: QuestionsState = { ...getInitialState(), showHints: true };
+      const nextState = questionsReducer(initialState, setHintVisibility({ visible: false }));
+      expect(nextState).toEqual({ ...initialState, showHints: false });
     });
   });
 });

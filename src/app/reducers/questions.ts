@@ -6,6 +6,7 @@ import {
   deactivateQuestion,
   loadQuestionsSuccess,
   rejectIncorrectAnswer,
+  setHintVisibility,
 } from 'src/app/actions/questions';
 import { Question, Questions } from 'src/app/models/question';
 
@@ -15,6 +16,7 @@ export interface QuestionsState {
   activeQuestion: null | Question;
   activeQuestionIncorrect: boolean;
   correctAnswers: { [emojis: string]: string };
+  showHints: boolean;
 }
 
 export const initialState: QuestionsState = {
@@ -23,6 +25,7 @@ export const initialState: QuestionsState = {
   activeQuestion: null,
   activeQuestionIncorrect: false,
   correctAnswers: {},
+  showHints: false,
 };
 
 const reducerFactory = createReducer(
@@ -47,6 +50,9 @@ const reducerFactory = createReducer(
   }),
   on(rejectIncorrectAnswer, state => {
     return { ...state, activeQuestionIncorrect: true };
+  }),
+  on(setHintVisibility, (state, action) => {
+    return { ...state, showHints: action.visible };
   }),
 );
 

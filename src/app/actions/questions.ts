@@ -26,6 +26,11 @@ export const rejectIncorrectAnswer = createAction(
   props<QuestionAnswerProps>(),
 );
 
+export const setHintVisibility = createAction(
+  `${prefix} set hint visibility`,
+  props<{ visible: boolean }>(),
+);
+
 export interface QuestionAnswerProps {
   question: Question;
   answer: string;

@@ -57,6 +57,11 @@ export const selectAnswerCounts = createSelector<State, QuestionsState, AnswerCo
   },
 );
 
+export const selectShowHints = createSelector(
+  selectQuestionState,
+  (state: QuestionsState) => state.showHints,
+);
+
 export interface AnswerCounts {
   total: number;
   correct: number;

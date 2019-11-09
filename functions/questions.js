@@ -1,3 +1,5 @@
+import {sortBy} from "lodash-es";
+
 export async function handler(event, context) {
   if (event.httpMethod === 'GET') {
     return listQuestions();
@@ -12,11 +14,12 @@ export async function handler(event, context) {
 }
 
 function listQuestions() {
-  const questions = require('./data.json').map(({ emojis }) => {
+  const questions = sortBy(require('./data.json').map(({ emojis, hint }) => {
     return {
       emojis,
+      hint,
     };
-  });
+  }), 'hint');
   return {
     statusCode: 200,
     body: JSON.stringify({ questions }),

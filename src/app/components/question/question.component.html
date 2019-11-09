@@ -9,9 +9,14 @@
     {{ correctAnswer }}
   </h1>
   <ng-template #captureAnswer>
-    <form *ngIf="isActive" @popup [formGroup]="form" (submit)="checkAnswer()">
+    <form *ngIf="isActive; else hint" @popup [formGroup]="form" (submit)="checkAnswer()">
       <input type="text" required formControlName="answer" />
       <button type="submit" [disabled]="form.invalid">Check</button>
     </form>
+  </ng-template>
+  <ng-template #hint>
+    <h3 *ngIf="showHints$ | async" class="hint">
+      Hint: {{ question.hint }}
+    </h3>
   </ng-template>
 </div>

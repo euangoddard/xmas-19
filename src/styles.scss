@@ -34,7 +34,7 @@ form {
   padding-bottom: 0.5rem;
 }
 
-input {
+input[type='text'] {
   @extend %form-base;
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
@@ -43,7 +43,7 @@ input {
 
   border: 1px solid #e2e8f0;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  flex: 1 0 auto;
+  flex: 1 1 auto;
 }
 
 button {
@@ -53,6 +53,13 @@ button {
   padding: 0.5rem 1rem;
   font-weight: 700;
   color: #fff;
+}
+
+.hint-control {
+  color: #a0aec0;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
 }
 
 .questions {
