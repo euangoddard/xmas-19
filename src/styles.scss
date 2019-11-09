@@ -45,6 +45,9 @@ input[type='text'] {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   flex: 1 1 auto;
   min-width: 3rem;
+
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
 }
 
 button {
@@ -54,6 +57,14 @@ button {
   padding: 0.5rem 1rem;
   font-weight: 700;
   color: #fff;
+  user-select: none;
+
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+
+  &:disabled {
+    opacity: 0.6;
+  }
 }
 
 .hint-control {
@@ -113,7 +124,7 @@ button {
 
 .hint {
   margin: 0;
-  color: rgba(black, 0.87)
+  color: rgba(black, 0.87);
 }
 
 .hint-text {
