@@ -10,7 +10,7 @@ body {
   font-size: 16px;
   padding: 1rem 1rem 5rem;
   background-color: darken(white, 2%);
-  color: lighten(black, 2%);
+  color: rgba(black, 0.85);
 }
 
 h1,
@@ -20,6 +20,10 @@ h4,
 h5,
 h6 {
   font-weight: 500;
+}
+
+.app-title {
+  margin: 0 0 1rem;
 }
 
 %form-base {
@@ -70,7 +74,7 @@ button {
 }
 
 .hint-control {
-  color: #a0aec0;
+  color: rgba(black, 0.45);
   font-size: 0.875rem;
   display: flex;
   align-items: center;
@@ -125,9 +129,14 @@ button {
   overflow-x: auto;
 }
 
+.correct-answer {
+  margin: 0.5rem 0 0;
+  font-weight: 400;
+}
+
 .hint {
   margin: 0;
-  color: rgba(black, 0.87);
+  color: rgba(black, 0.65);
 }
 
 .hint-text {

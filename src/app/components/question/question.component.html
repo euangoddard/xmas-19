@@ -5,7 +5,7 @@
   [class.correct]="isCorrect$ | async"
 >
   <h2 class="question__clue" [class.question__clue--active]="isActive">{{ question.emojis }}</h2>
-  <h1 *ngIf="correctAnswer$ | async as correctAnswer; else captureAnswer">
+  <h1 *ngIf="correctAnswer$ | async as correctAnswer; else captureAnswer" class="correct-answer">
     {{ correctAnswer }}
   </h1>
   <ng-template #captureAnswer>
