@@ -1,3 +1,6 @@
-<h1 *ngIf="counts$ | async as counts">
+<h1 *ngIf="counts$ | async as counts" class="progress-numbers">
   {{ counts.correct }} <span style="font-weight: 300">/</span> {{ counts.total }}
 </h1>
+<div class="progress-bar">
+  <div class="progress-bar-overlay" [style.width.%]="overlayWidth$ | async"></div>
+</div>
