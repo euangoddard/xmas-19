@@ -10,7 +10,7 @@
   </h1>
   <ng-template #captureAnswer>
     <form *ngIf="isActive; else hint" @popup [formGroup]="form" (submit)="checkAnswer()">
-      <input type="text" required formControlName="answer" />
+      <input type="text" required formControlName="answer" focusField />
       <button type="submit" [disabled]="form.invalid">Check</button>
     </form>
   </ng-template>
