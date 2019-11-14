@@ -84,5 +84,11 @@
     "answer": "Die Hard",
     "hint": "Film"
   },
-  { "emojis": "\uD83D\uDE31", "answer": "Home Alone", "hint": "Film" }
+  { "emojis": "\uD83D\uDE31", "answer": "Home Alone", "hint": "Film" },
+  { "emojis": "3️⃣ 2️⃣ 1️⃣ \uD83C\uDF87\uD83C\uDF86", "answer": "Happy new year", "hint": "Event" },
+  {
+    "emojis": "\uD83D\uDC80\uD83D\uDC7B\uD83D\uDE31\uD83C\uDF83\uD83C\uDF84",
+    "answer": "The nightmare before Christmas",
+    "hint": "Film"
+  }
 ]
