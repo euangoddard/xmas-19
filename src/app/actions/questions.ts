@@ -36,6 +36,8 @@ export const setHintVisibility = createAction(
   props<{ visible: boolean }>(),
 );
 
+export const resetAnswers = createAction(`${prefix} reset answers`);
+
 export interface QuestionAnswerProps {
   question: Question;
   answer: string;

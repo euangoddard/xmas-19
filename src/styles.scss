@@ -232,9 +232,15 @@ $progress-padding: 1rem;
     transform: scale(1, 1) translateY(0);
   }
 }
+%total-centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .win-container {
   @extend %blurred-background;
+  @extend %total-centering;
   position: fixed;
   top: 0;
   left: 0;
@@ -242,9 +248,11 @@ $progress-padding: 1rem;
   bottom: 0;
   background: rgba(#fff, 0.8);
   backdrop-filter: blur(4px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+.win-wrapper {
+  @extend %total-centering;
+  flex-direction: column;
 }
 
 .win-message {

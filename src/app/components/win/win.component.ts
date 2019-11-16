@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { resetAnswers } from 'src/app/actions/questions';
 import { State } from 'src/app/reducers';
 import { AnswerCounts, selectAnswerCounts } from 'src/app/selectors/questions';
 
@@ -22,5 +23,9 @@ export class WinComponent {
         return counts ? counts.correct >= counts.total : false;
       }),
     );
+  }
+
+  reset(): void {
+    this.store.dispatch(resetAnswers());
   }
 }

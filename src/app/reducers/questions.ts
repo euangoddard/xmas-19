@@ -7,6 +7,7 @@ import {
   loadAnswers,
   loadQuestionsSuccess,
   rejectIncorrectAnswer,
+  resetAnswers,
   setHintVisibility,
 } from 'src/app/actions/questions';
 import { AnswersByEmoji } from 'src/app/models/answers';
@@ -58,6 +59,9 @@ const reducerFactory = createReducer(
   }),
   on(loadAnswers, (state, action) => {
     return { ...state, correctAnswers: { ...state.correctAnswers, ...action.correctAnswers } };
+  }),
+  on(resetAnswers, state => {
+    return { ...state, correctAnswers: {} };
   }),
 );
 

@@ -6,6 +6,7 @@ import {
   loadAnswers,
   loadQuestionsSuccess,
   rejectIncorrectAnswer,
+  resetAnswers,
   setHintVisibility,
 } from 'src/app/actions/questions';
 import { AnswersByEmoji } from 'src/app/models/answers';
@@ -204,6 +205,14 @@ describe('Questions reducer', () => {
       const correctAnswers: AnswersByEmoji = { ABC: '123', DEF: '456' };
       const nextState = questionsReducer(initialState, loadAnswers({ correctAnswers }));
       expect(nextState).toEqual({ ...initialState, correctAnswers });
+    });
+  });
+
+  describe('resetAnswers', () => {
+    it('should clear all the answers out', () => {
+      const initialState = { ...getInitialState(), correctAnswers: { ABC: '123', DEF: '456' } };
+      const nextState = questionsReducer(initialState, resetAnswers());
+      expect(nextState).toEqual(getInitialState());
     });
   });
 });

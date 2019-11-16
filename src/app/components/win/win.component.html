@@ -2,5 +2,8 @@
   <div class="win" *ngFor="let emoji of emojis">
     <span>{{ emoji }}</span>
   </div>
-  <h1 class="win-message">You win!</h1>
+  <div class="win-wrapper">
+    <h1 class="win-message">You win!</h1>
+    <button type="button" (click)="reset()">Start over</button>
+  </div>
 </div>
