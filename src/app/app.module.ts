@@ -16,6 +16,7 @@ import { ProgressComponent } from './components/progress/progress.component';
 import { QuestionComponent } from './components/question/question.component';
 import { FocusFieldDirective } from './directives/focus-field.directive';
 import { metaReducers, reducers } from './reducers';
+import { WinComponent } from './components/win/win.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { metaReducers, reducers } from './reducers';
     ProgressComponent,
     HintToggleComponent,
     FocusFieldDirective,
+    WinComponent,
   ],
   imports: [
     BrowserAnimationsModule,

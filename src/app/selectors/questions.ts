@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { size } from 'lodash-es';
+import { has, size } from 'lodash-es';
 import { Question } from 'src/app/models/question';
 import { State } from 'src/app/reducers';
 import { QuestionsState } from 'src/app/reducers/questions';
@@ -47,9 +47,12 @@ export const selectAnswerCounts = createSelector<State, QuestionsState, AnswerCo
   selectQuestionState,
   (state: QuestionsState) => {
     if (state.ready) {
+      const correctCount = state.questions.filter(({ emojis }) => has(state.correctAnswers, emojis))
+        .length;
+
       return {
         total: state.questions.length,
-        correct: size(state.correctAnswers),
+        correct: correctCount,
       };
     } else {
       return null;

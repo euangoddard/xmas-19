@@ -1,0 +1,6 @@
+<div class="win-container" *ngIf="hasWon$ | async">
+  <div class="win" *ngFor="let emoji of emojis">
+    <span>{{ emoji }}</span>
+  </div>
+  <h1 class="win-message">You win!</h1>
+</div>
