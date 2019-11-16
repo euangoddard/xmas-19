@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Action, select, Store } from '@ngrx/store';
-import { map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import { map, mapTo, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import {
   checkAnswer,
   confirmCorrectAnswer,
+  deactivateQuestion,
   loadAnswers,
   loadQuestions,
   loadQuestionsSuccess,
@@ -71,6 +72,13 @@ export class QuestionEffects {
           }),
         );
       }),
+    ),
+  );
+
+  readonly confirmCorrectAnswer$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(confirmCorrectAnswer.type),
+      mapTo(deactivateQuestion()),
     ),
   );
 
