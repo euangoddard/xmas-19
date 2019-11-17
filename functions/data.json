@@ -90,5 +90,6 @@
     "emojis": "\uD83D\uDC80\uD83D\uDC7B\uD83D\uDE31\uD83C\uDF83\uD83C\uDF84",
     "answer": "The nightmare before Christmas",
     "hint": "Film"
-  }
+  },
+  { "emojis": "O\uD83C\uDF84 , o\uD83C\uDF84", "answer": "O Christmas tree", "hint": "Song" }
 ]
