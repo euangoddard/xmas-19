@@ -10,7 +10,7 @@ import {
   loadQuestions,
   loadQuestionsSuccess,
   QuestionAnswerProps,
-  rejectIncorrectAnswer,
+  rejectIncorrectAnswer, resetAnswers,
   setHintVisibility,
 } from 'src/app/actions/questions';
 import { AnswersByEmoji } from 'src/app/models/answers';
@@ -85,7 +85,7 @@ export class QuestionEffects {
   readonly saveAnswers$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(confirmCorrectAnswer.type),
+        ofType(confirmCorrectAnswer.type, resetAnswers.type),
         withLatestFrom(this.store.pipe(select(selectCorrectAnswers))),
         tap(([_, correctAnswers]) => {
           this.storage.set(ANSWERS_STORAGE_KEY, correctAnswers);
