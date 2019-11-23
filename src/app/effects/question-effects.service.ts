@@ -10,12 +10,15 @@ import {
   loadQuestions,
   loadQuestionsSuccess,
   QuestionAnswerProps,
-  rejectIncorrectAnswer, resetAnswers,
+  rejectIncorrectAnswer,
+  resetAnswers,
   setHintVisibility,
 } from 'src/app/actions/questions';
 import { AnswersByEmoji } from 'src/app/models/answers';
+import { Question } from 'src/app/models/question';
 import { State } from 'src/app/reducers';
-import { selectCorrectAnswers } from 'src/app/selectors/questions';
+import { selectAnswerCounts, selectCorrectAnswers } from 'src/app/selectors/questions';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 import { ApiService } from 'src/app/services/api.service';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -29,6 +32,7 @@ export class QuestionEffects {
     private readonly apiService: ApiService,
     private readonly store: Store<State>,
     private readonly storage: StorageService,
+    private readonly analytics: AnalyticsService,
   ) {}
 
   readonly loadQuestions$ = createEffect(() =>
@@ -80,6 +84,25 @@ export class QuestionEffects {
       ofType(confirmCorrectAnswer.type),
       mapTo(deactivateQuestion()),
     ),
+  );
+
+  readonly trackCorrectAnswer$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(confirmCorrectAnswer.type),
+        withLatestFrom(this.store.pipe(select(selectAnswerCounts))),
+        tap(([action, counts]) => {
+          if (counts) {
+            this.analytics.trackEvent(
+              'Questions',
+              'Answer correctly',
+              ((action as any).question as Question).emojis,
+              counts.correct,
+            );
+          }
+        }),
+      ),
+    { dispatch: false },
   );
 
   readonly saveAnswers$ = createEffect(
