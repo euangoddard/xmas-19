@@ -91,5 +91,6 @@
     "answer": "The nightmare before Christmas",
     "hint": "Film"
   },
-  { "emojis": "O\uD83C\uDF84 , o\uD83C\uDF84", "answer": "O Christmas tree", "hint": "Song" }
+  { "emojis": "O\uD83C\uDF84 , o\uD83C\uDF84", "answer": "O Christmas tree", "hint": "Song" },
+  { "emojis": "\uD83D\uDD34\uD83D\uDC43\uD83C\uDFFD\uD83E\uDD8C", "answer": "Rudolph the red-nosed reindeer", "hint": "Song" }
 ]
