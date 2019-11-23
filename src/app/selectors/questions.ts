@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { has, size } from 'lodash-es';
+import { has } from 'lodash-es';
 import { Question } from 'src/app/models/question';
 import { State } from 'src/app/reducers';
 import { QuestionsState } from 'src/app/reducers/questions';
