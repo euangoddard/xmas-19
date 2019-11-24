@@ -2,18 +2,14 @@ import { Inject, Injectable } from '@angular/core';
 import { WINDOW } from 'src/app/app.tokens';
 
 interface TagManagerWindow {
-  dataLayer: any[];
+  gtag(...args: any[]): void;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class AnalyticsService {
-  constructor(@Inject(WINDOW) private readonly windowRef: Window & TagManagerWindow) {
-    this.windowRef.dataLayer = this.windowRef.dataLayer || [];
-    this.track('js', new Date());
-    this.track('config', 'UA-153077216-1');
-  }
+  constructor(@Inject(WINDOW) private readonly windowRef: Window & TagManagerWindow) {}
 
   trackEvent(
     eventCategory: string,
@@ -21,16 +17,12 @@ export class AnalyticsService {
     eventLabel?: string,
     eventValue?: number,
   ): void {
-    this.track('send', {
+    this.windowRef.gtag('send', {
       hitType: 'event',
       eventCategory,
       eventAction,
       eventLabel,
       eventValue,
     });
-  }
-
-  private track(...args: readonly any[]): void {
-    this.windowRef.dataLayer.push(args);
   }
 }
