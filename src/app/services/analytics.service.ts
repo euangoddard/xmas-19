@@ -17,12 +17,6 @@ export class AnalyticsService {
     eventLabel?: string,
     eventValue?: number,
   ): void {
-    this.windowRef.gtag('send', {
-      hitType: 'event',
-      eventCategory,
-      eventAction,
-      eventLabel,
-      eventValue,
-    });
+    this.windowRef.gtag('send', 'event', eventCategory, eventAction, eventLabel, eventValue);
   }
 }
