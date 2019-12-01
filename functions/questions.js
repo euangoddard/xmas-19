@@ -75,7 +75,7 @@ function normalizeAnswer(answer) {
   if (!answer) {
     return answer;
   }
-  const words = answer.toLowerCase().split(/\s+/g);
+  const words = answer.toLowerCase().split(/\W+/g);
   const wordsNormalized = [];
   words.forEach(word => {
     const wordSynonym = normalizeSynonyms(word);
